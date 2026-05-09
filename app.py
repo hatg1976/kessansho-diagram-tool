@@ -246,7 +246,8 @@ def _draw_block_diagram(bs, pl, year_label, unit_label, watermark=False):
                    showgrid=False, showticklabels=False, zeroline=False, fixedrange=True),
         yaxis=dict(range=[y_min, y_max],
                    showgrid=False, showticklabels=False, zeroline=False, fixedrange=True),
-        title=dict(text=year_label, font=dict(size=15), x=0.5, xanchor="center"),
+        title=dict(text=year_label, font=dict(size=15, family="Noto Sans CJK JP, IPAexGothic, sans-serif"), x=0.5, xanchor="center"),
+        font=dict(family="Noto Sans CJK JP, IPAexGothic, sans-serif"),
         height=650, margin=dict(l=10, r=10, t=50, b=20),
         plot_bgcolor="white", paper_bgcolor="white",
     )
