@@ -1,0 +1,7 @@
+# secrets は絶対にコミットしない
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.pyc
+.env
