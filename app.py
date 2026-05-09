@@ -268,7 +268,7 @@ def _render_header():
     else:
         st.info(
             "**無料プラン**（1期表示のみ）　|　"
-            "[🔓 有料プランにアップグレード（月額980円）](https://buy.stripe.com/YOUR_LINK) "
+            "[🔓 有料プランにアップグレード（月額500円）](https://buy.stripe.com/YOUR_LINK) "
             "で3期比較・エクスポートが使えます"
         )
 
@@ -301,7 +301,7 @@ def _render_sidebar():
             st.markdown("---")
             st.markdown("### 💳 有料プランを購入")
             st.markdown(
-                "**月額 980円**\n\n"
+                "**月額 500円**\n\n"
                 "- 3期比較\n"
                 "- PNG / PDF エクスポート\n"
                 "- 透かしなし\n\n"
