@@ -216,6 +216,10 @@ def _draw_block_diagram(bs, pl, year_label, unit_label, watermark=False):
     hline(CF, 0, BDR, 0.8)
 
     ann_y = y_max * 0.97
+    asset_turnover = rev / total_a if total_a > 0 else 0
+    _label((BS_A[0]+REV[0])/2, ann_y,
+           f"総資産回転率=売上高÷総資産<br>{asset_turnover:.2f}回",
+           14, "#333", xa="center", ya="top", bg="#E8F5E9", bc="#888")
     _label((REV[0]+MAIN[1])/2, ann_y,
            f"粗利益率=粗利益÷売上高<br>{gross_r:.1%}",
            14, "#333", xa="center", ya="top", bg="#FFFACD", bc="#888")
