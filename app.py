@@ -615,7 +615,7 @@ def _render_charts(bs, pl, n_years, year_labels, unit_label):
 
         # エクスポートボタン（有料のみ）
         if paid:
-            ecol1, ecol2, _ = st.columns([1, 1, 4])
+            ecol1, ecol2, _ = st.columns([1, 1, 8])
             try:
                 png_bytes = fig.to_image(format="png", width=1800, height=700, scale=2)
                 ecol1.download_button(
