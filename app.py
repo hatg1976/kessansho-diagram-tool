@@ -665,9 +665,8 @@ def _render_charts(bs, pl, n_years, year_labels, unit_label):
                 y_offset += img.height
             buf = io.BytesIO()
             combined.save(buf, format="PNG")
-            col_dl, _ = st.columns([2, 8])
-            col_dl.download_button(
-                "📥 まとめてDL (PNG)",
+            st.download_button(
+                "📥 3期分まとめてダウンロード（PNG）",
                 buf.getvalue(),
                 "financial_all_periods.png",
                 "image/png",
