@@ -19,6 +19,136 @@ st.set_page_config(
 )
 
 # ─────────────────────────────────────────────────────────────────
+# マッキンゼー風カスタムCSS
+# ─────────────────────────────────────────────────────────────────
+st.markdown("""
+<style>
+/* フォント・基本 */
+html, body, [class*="css"] {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+    color: #1a1a1a;
+}
+
+/* ヘッダーエリア */
+.block-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    max-width: 1200px;
+}
+
+/* タイトル */
+h1 {
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    color: #002147 !important;
+    letter-spacing: 0.02em;
+    border-bottom: 3px solid #002147;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.3rem !important;
+}
+
+/* サブ見出し */
+h2, h3 {
+    font-weight: 600 !important;
+    color: #002147 !important;
+}
+
+/* キャプション */
+.stCaption {
+    color: #555 !important;
+    font-size: 0.85rem !important;
+}
+
+/* infoバナー（無料プラン） */
+.stAlert[data-baseweb="notification"] {
+    border-radius: 0 !important;
+    border-left: 4px solid #002147 !important;
+    background-color: #f5f7fa !important;
+}
+
+/* successバナー（有料プラン） */
+.stSuccess {
+    border-radius: 0 !important;
+    border-left: 4px solid #00704a !important;
+}
+
+/* エクスパンダー */
+.streamlit-expanderHeader {
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    color: #002147 !important;
+    background-color: #f5f7fa !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+}
+
+/* タブ */
+.stTabs [data-baseweb="tab"] {
+    font-weight: 600;
+    color: #555;
+    border-bottom: 2px solid transparent;
+}
+.stTabs [aria-selected="true"] {
+    color: #002147 !important;
+    border-bottom: 2px solid #002147 !important;
+}
+
+/* ボタン */
+.stButton > button {
+    background-color: #002147 !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 0 !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.03em;
+}
+.stButton > button:hover {
+    background-color: #003580 !important;
+}
+
+/* ダウンロードボタン */
+.stDownloadButton > button {
+    background-color: white !important;
+    color: #002147 !important;
+    border: 1.5px solid #002147 !important;
+    border-radius: 0 !important;
+    font-weight: 600 !important;
+}
+
+/* テーブル */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th {
+    background-color: #002147 !important;
+    color: white !important;
+    padding: 8px 12px;
+    font-weight: 600;
+}
+td {
+    padding: 7px 12px;
+    border-bottom: 1px solid #e0e0e0;
+}
+tr:nth-child(even) td {
+    background-color: #f5f7fa;
+}
+
+/* サイドバー */
+[data-testid="stSidebar"] {
+    background-color: #f5f7fa !important;
+    border-right: 1px solid #e0e0e0;
+}
+
+/* 水平線 */
+hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 1.5rem 0;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# ─────────────────────────────────────────────────────────────────
 # プラン管理
 # ─────────────────────────────────────────────────────────────────
 def _is_paid() -> bool:
@@ -262,7 +392,15 @@ def _draw_block_diagram(bs, pl, year_label, unit_label, watermark=False):
 # ヘッダー・プランバナー
 # ─────────────────────────────────────────────────────────────────
 def _render_header():
-    st.title("📊 決算書図解ツール")
+    st.markdown("""
+<div style="margin-bottom:0.2rem;">
+    <span style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;
+                 color:#002147;text-transform:uppercase;">
+        Financial Analysis Tool
+    </span>
+</div>
+""", unsafe_allow_html=True)
+    st.title("決算書図解ツール")
     st.caption(
         "貸借対照表（BS）・損益計算書（P/L）の数値を入力するだけで、"
         "財務構造をブロック図で即座に可視化します。"
