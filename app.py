@@ -99,14 +99,18 @@ h2, h3 {
 /* ボタン */
 .stButton > button {
     background-color: #002147 !important;
-    color: white !important;
+    color: #ffffff !important;
     border: none !important;
     border-radius: 0 !important;
     font-weight: 600 !important;
     letter-spacing: 0.03em;
 }
+.stButton > button * {
+    color: #ffffff !important;
+}
 .stButton > button:hover {
     background-color: #003580 !important;
+    color: #ffffff !important;
 }
 
 /* ダウンロードボタン */
@@ -143,7 +147,7 @@ tr:nth-child(even) td {
     border-right: 1px solid #e0e0e0;
 }
 [data-testid="stSidebar"] > div:first-child {
-    padding-top: 2rem !important;
+    padding-top: 3rem !important;
 }
 
 /* 水平線 */
@@ -428,7 +432,16 @@ def _render_header():
 # ─────────────────────────────────────────────────────────────────
 def _render_sidebar():
     with st.sidebar:
-        st.markdown("## 📊 決算書図解ツール")
+        st.markdown("""
+<div style="padding:0.8rem 0 0.5rem 0;border-bottom:2px solid #002147;margin-bottom:0.5rem;">
+    <span style="font-size:0.65rem;letter-spacing:0.12em;color:#002147;font-weight:600;text-transform:uppercase;">
+        Financial Analysis Tool
+    </span><br>
+    <span style="font-size:1.1rem;font-weight:700;color:#002147;">
+        決算書図解ツール
+    </span>
+</div>
+""", unsafe_allow_html=True)
         st.markdown("---")
 
         if _is_paid():
@@ -437,7 +450,7 @@ def _render_sidebar():
                 st.session_state["plan"] = "free"
                 st.rerun()
         else:
-            st.markdown("### 🔓 アクセスコード")
+            st.markdown("### アクセスコード")
             st.caption("有料プラン購入後に届くコードを入力してください")
             code_input = st.text_input("コード", type="password", label_visibility="collapsed")
             if st.button("認証する", use_container_width=True):
@@ -449,14 +462,14 @@ def _render_sidebar():
                     st.error("コードが正しくありません")
 
             st.markdown("---")
-            st.markdown("### 💳 有料プランを購入")
-            st.markdown(
-                "**月額 500円**\n\n"
-                "- 3期比較\n"
-                "- PNG / PDF エクスポート\n"
-                "- 透かしなし\n\n"
-                "[Stripeで購入する →](https://buy.stripe.com/YOUR_LINK)"
-            )
+            with st.expander("💳 有料プランを購入"):
+                st.markdown(
+                    "**月額 500円**\n\n"
+                    "- 3期比較\n"
+                    "- PNG / PDF エクスポート\n"
+                    "- 透かしなし\n\n"
+                    "[Stripeで購入する →](https://buy.stripe.com/YOUR_LINK)"
+                )
 
         st.markdown("---")
         st.markdown(
