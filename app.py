@@ -35,7 +35,7 @@ p, span, label, div, input, select, textarea {
 
 /* ヘッダーエリア */
 .block-container {
-    padding-top: 2rem;
+    padding-top: 4rem;
     padding-bottom: 2rem;
     max-width: 1200px;
 }
@@ -147,7 +147,7 @@ tr:nth-child(even) td {
     border-right: 1px solid #e0e0e0;
 }
 [data-testid="stSidebar"] > div:first-child {
-    padding-top: 3rem !important;
+    padding-top: 1rem !important;
 }
 
 /* 水平線 */
