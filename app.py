@@ -665,12 +665,13 @@ def _render_charts(bs, pl, n_years, year_labels, unit_label):
                 y_offset += img.height
             buf = io.BytesIO()
             combined.save(buf, format="PNG")
-            st.download_button(
+            col_dl, _ = st.columns([3, 7])
+            col_dl.download_button(
                 "📥 3期分まとめてダウンロード（PNG）",
                 buf.getvalue(),
                 "financial_all_periods.png",
                 "image/png",
-                use_container_width=False,
+                use_container_width=True,
             )
         except Exception as e:
             st.caption(f"⚠️ まとめ画像の生成に失敗しました: {e}")
