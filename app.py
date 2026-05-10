@@ -7,6 +7,7 @@
 import streamlit as st
 import plotly.graph_objects as go
 from datetime import datetime
+import io
 
 # ─────────────────────────────────────────────────────────────────
 # ページ設定
@@ -609,6 +610,8 @@ def _render_charts(bs, pl, n_years, year_labels, unit_label):
     paid = _is_paid()
     st.markdown(f"## 財務状況　（単位：{unit_label}）")
 
+    all_png_bytes = []  # 3期分まとめDL用
+
     for i in range(n_years):
         bs_yr = {k: bs[k][i] for k in bs}
         pl_yr = {k: pl[k][i] for k in pl}
@@ -621,6 +624,7 @@ def _render_charts(bs, pl, n_years, year_labels, unit_label):
             ecol1, ecol2, _ = st.columns([1, 1, 6])
             try:
                 png_bytes = fig.to_image(format="png", width=1800, height=700, scale=2)
+                all_png_bytes.append(png_bytes)
                 ecol1.download_button(
                     "📥 PNG",
                     png_bytes,
@@ -644,6 +648,32 @@ def _render_charts(bs, pl, n_years, year_labels, unit_label):
             st.caption("🔒 PNG/PDF エクスポートは有料プランで利用できます")
 
         st.markdown("---")
+
+    # 3期まとめダウンロード（有料・2期以上のとき）
+    if paid and len(all_png_bytes) >= 2:
+        st.markdown("### 📊 3期比較まとめ画像")
+        try:
+            from PIL import Image
+            images = [Image.open(io.BytesIO(b)) for b in all_png_bytes]
+            # 縦に結合
+            total_h = sum(img.height for img in images)
+            max_w = max(img.width for img in images)
+            combined = Image.new("RGB", (max_w, total_h), "white")
+            y_offset = 0
+            for img in images:
+                combined.paste(img, (0, y_offset))
+                y_offset += img.height
+            buf = io.BytesIO()
+            combined.save(buf, format="PNG")
+            st.download_button(
+                "📥 3期分まとめてダウンロード（PNG）",
+                buf.getvalue(),
+                "financial_all_periods.png",
+                "image/png",
+                use_container_width=False,
+            )
+        except Exception as e:
+            st.caption(f"⚠️ まとめ画像の生成に失敗しました: {e}")
 
 
 # ─────────────────────────────────────────────────────────────────
