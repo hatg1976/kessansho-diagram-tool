@@ -26,7 +26,11 @@ st.markdown("""
 /* フォント・基本 */
 html, body, [class*="css"] {
     font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
-    color: #1a1a1a;
+    color: #111111 !important;
+}
+/* 全般的なテキスト色を濃く */
+p, span, label, div, input, select, textarea {
+    color: #111111 !important;
 }
 
 /* ヘッダーエリア */
