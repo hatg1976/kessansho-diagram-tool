@@ -624,6 +624,7 @@ def _render_charts(bs, pl, n_years, year_labels, unit_label):
                     f"financial_{year_labels[i]}.png",
                     "image/png",
                     key=f"png_{i}",
+                    use_container_width=True,
                 )
                 pdf_bytes = fig.to_image(format="pdf", width=1800, height=700)
                 ecol2.download_button(
@@ -632,6 +633,7 @@ def _render_charts(bs, pl, n_years, year_labels, unit_label):
                     f"financial_{year_labels[i]}.pdf",
                     "application/pdf",
                     key=f"pdf_{i}",
+                    use_container_width=True,
                 )
             except Exception:
                 st.caption("⚠️ エクスポートには `kaleido` パッケージが必要です")
