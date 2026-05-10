@@ -55,7 +55,7 @@ h2, h3 {
 
 /* キャプション */
 .stCaption {
-    color: #555 !important;
+    color: #222 !important;
     font-size: 0.85rem !important;
 }
 
