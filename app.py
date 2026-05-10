@@ -425,7 +425,7 @@ def _render_header():
     else:
         st.info(
             "**無料プラン**（1期表示のみ）　|　"
-            "[🔓 有料プランにアップグレード（月額500円）](https://buy.stripe.com/YOUR_LINK) "
+            "[🔓 有料プランにアップグレード（月額500円）](https://buy.stripe.com/7sYaEZ2qI6kZcI65mT8EM00) "
             "で3期比較・エクスポートが使えます"
         )
 
@@ -471,7 +471,7 @@ def _render_sidebar():
                     "- 3期比較\n"
                     "- PNG / PDF エクスポート\n"
                     "- 透かしなし\n\n"
-                    "[Stripeで購入する →](https://buy.stripe.com/YOUR_LINK)"
+                    "[Stripeで購入する →](https://buy.stripe.com/7sYaEZ2qI6kZcI65mT8EM00)"
                 )
 
         st.markdown("---")
