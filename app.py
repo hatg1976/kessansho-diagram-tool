@@ -121,9 +121,6 @@ h2, h3 {
     border: 1.5px solid #002147 !important;
     border-radius: 0 !important;
     font-weight: 600 !important;
-    width: 100px !important;
-    height: 40px !important;
-    padding: 0 !important;
 }
 
 /* テーブル */
