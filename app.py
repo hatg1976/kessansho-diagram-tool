@@ -138,6 +138,9 @@ tr:nth-child(even) td {
     background-color: #f5f7fa !important;
     border-right: 1px solid #e0e0e0;
 }
+[data-testid="stSidebar"] > div:first-child {
+    padding-top: 2rem !important;
+}
 
 /* 水平線 */
 hr {
