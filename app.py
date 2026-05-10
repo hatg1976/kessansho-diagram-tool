@@ -363,18 +363,18 @@ def _draw_block_diagram(bs, pl, year_label, unit_label, watermark=False):
     asset_turnover = rev / total_a if total_a > 0 else 0
     _label((BS_A[0]+REV[0])/2, ann_y,
            f"総資産回転率=売上高÷総資産<br>{asset_turnover:.2f}回",
-           14, "#333", xa="center", ya="top", bg="#E8F5E9", bc="#888")
+           14, "#111", xa="center", ya="top", bg="#E8F5E9", bc="#555")
     _label((REV[0]+MAIN[1])/2, ann_y,
            f"粗利益率=粗利益÷売上高<br>{gross_r:.1%}",
-           14, "#333", xa="center", ya="top", bg="#FFFACD", bc="#888")
+           14, "#111", xa="center", ya="top", bg="#FFFACD", bc="#555")
     if jinken > 0 and gross > 0:
         _label((FIX[0]+SUB[1])/2, ann_y,
                f"労働分配率=人件費÷粗利益<br>{rodo:.1%}",
-               14, "#333", xa="center", ya="top", bg="#E3F2FD", bc="#888")
+               14, "#111", xa="center", ya="top", bg="#E3F2FD", bc="#555")
     if bep is not None:
         _label(W, ann_y,
                f"損益分岐点売上高=固定費÷粗利益率<br>{bep:,.0f} {unit_label}",
-               14, "#B71C1C", xa="right", ya="top", bg="#FFF9C4", bc="#C00")
+               14, "#111", xa="right", ya="top", bg="#FFF9C4", bc="#555")
 
     # 透かし（無料版）
     if watermark:
