@@ -475,7 +475,7 @@ def _render_sidebar():
         st.markdown("---")
         st.markdown(
             "### 📖 使い方ガイド\n"
-            "[noteで詳しく解説](https://note.com/management_step/n/n7185c002ac3d)"
+            "[noteで詳しく解説](https://note.com/management_step/n/n7d4a86636996)"
         )
 
 
