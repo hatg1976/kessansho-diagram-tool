@@ -22,8 +22,7 @@ st.set_page_config(
 # ─────────────────────────────────────────────────────────────────
 # Google Analytics
 # ─────────────────────────────────────────────────────────────────
-import streamlit.components.v1 as components
-components.html("""
+st.markdown("""
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4LTF7J40M"></script>
 <script>
@@ -32,7 +31,7 @@ components.html("""
   gtag('js', new Date());
   gtag('config', 'G-L4LTF7J40M');
 </script>
-""", height=0)
+""", unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────────────────────────
 # マッキンゼー風カスタムCSS
