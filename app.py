@@ -22,16 +22,8 @@ st.set_page_config(
 # ─────────────────────────────────────────────────────────────────
 # Google Analytics
 # ─────────────────────────────────────────────────────────────────
-st.markdown("""
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4LTF7J40M"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-L4LTF7J40M');
-</script>
-""", unsafe_allow_html=True)
+from streamlit_google_analytics_tag import google_analytics
+google_analytics("G-L4LTF7J40M")
 
 # ─────────────────────────────────────────────────────────────────
 # マッキンゼー風カスタムCSS
