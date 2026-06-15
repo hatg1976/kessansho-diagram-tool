@@ -2,4 +2,3 @@ streamlit>=1.35.0
 plotly>=5.20.0
 kaleido==0.2.1
 Pillow>=10.0.0
-streamlit-google-analytics-tag==1.1
